@@ -13,7 +13,25 @@ format: html
 
 ```{r setup}
 library(tidyverse)
+post_meal_data <- read_csv2(
+#csv2 for ; csv for comma; when underscore e.g. in read_csv, then it is from tidyverse 
+here::here("data/post-meal-insulin.csv")
+)
 ```
+
+## Showing the data 
+```{r}
+post_meal_data
+```
+
+```{r}
+glimpse(post_meal_data)
+```
+
+
+
+
+
 ## About me 
 - Name: Sarah Sentis 
 - Affiliation: University of Southern Denmark 
