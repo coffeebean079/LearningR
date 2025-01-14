@@ -1,0 +1,32 @@
+---
+title: "Reproducible document"
+author: "Sarah C. Sentis"
+format: html
+---
+
+## Basics of R
+
+```{r}
+1 + 1 
+```
+## Setup code chunk 
+
+```{r setup}
+library(tidyverse)
+```
+## About me 
+- Name: Sarah Sentis 
+- Affiliation: University of Southern Denmark 
+
+I am a **Postdoc** and work at the institute of *Biochemistry and Molecular Biology*.
+---
+
+## Simple code
+```{r}
+3*3
+```
+
+## Testing for Git 
+It is raining today. 
+
+
