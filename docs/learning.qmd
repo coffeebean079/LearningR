@@ -12,6 +12,8 @@ format: html
 ## Setup code chunk 
 
 ```{r setup}
+#| message: false 
+#| warning: false
 library(tidyverse)
 post_meal_data <- read_csv2(
 #csv2 for ; csv for comma; when underscore e.g. in read_csv, then it is from tidyverse 
@@ -27,10 +29,6 @@ post_meal_data
 ```{r}
 glimpse(post_meal_data)
 ```
-
-
-
-
 
 ## About me 
 - Name: Sarah Sentis 
