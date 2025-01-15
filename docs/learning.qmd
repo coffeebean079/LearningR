@@ -144,6 +144,26 @@ small_post_meal_data |>
   )
 ```
 
+## Select and rename tasks
+
+```{r}
+# Task 1.
+post_meal_data |>
+  select(contains("OGTT"))
+
+# Task 2.
+post_meal_data |>
+  select(contains(".."), -contains("...")) |>
+  rename(.minus5 = contains(".."))
+
+# Task 3.
+basic_info <- select(post_meal_data, id, BMI, Length, Weight, Age)
+rename(basic_info, Height = Length)
+
+post_meal_data |>
+  select(id, BMI, Length, Weight, Age) |>
+  rename(Height = Length)
+```
 
 
 ## About me 
