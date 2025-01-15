@@ -30,6 +30,31 @@ post_meal_data
 glimpse(post_meal_data)
 ```
 
+```{r}
+ggplot(post_meal_data, aes(x = BMI)) + 
+  geom_histogram()
+```
+```{r}
+#| fig-cap: "Distribution BMI"
+#| label: fig-bmi-histo
+ggplot(post_meal_data, aes(x = BMI)) + 
+  geom_histogram()
+```
+
+@fig-bmi-histo
+
+
+## Exercise: discrete plots 
+
+```{r}
+#| fig-cap: "Glykemi Bar-Plot"
+#| label: fig-glykemi-bar
+ggplot(post_meal_data, aes(x = glykemi)) +
+  geom_bar()
+```
+@fig-glykemi-bar 
+
+
 ## About me 
 - Name: Sarah Sentis 
 - Affiliation: University of Southern Denmark 
