@@ -19,6 +19,8 @@ post_meal_data <- read_csv2(
   # csv2 for ; csv for comma; when underscore e.g. in read_csv, then it is from tidyverse
   here::here("data/post-meal-insulin.csv")
 )
+
+small_post_meal_data <- select(post_meal_data, id, Age, BMI, Group, auc_pg, auc_ins, glykemi)
 ```
 
 ## Showing the data 
@@ -107,8 +109,8 @@ ggplot(post_meal_data, aes(x = glykemi)) +
 ```{r}
 #| fig-cap: "Scatterplot BMI against AUC of blood glucose"
 #| label: fig-scatter-bmi-auc-pg
-ggplot(post_meal_data, aes(x = BMI, y = auc_pg)) + 
-  geom_point() + 
+ggplot(post_meal_data, aes(x = BMI, y = auc_pg)) +
+  geom_point() +
   geom_smooth()
 ```
 
@@ -116,6 +118,19 @@ ggplot(post_meal_data, aes(x = BMI, y = auc_pg)) +
 
 ## Pulling changes locally 
 
+## Selecting Data
+
+```{r}
+select(post_meal_data, Age)
+
+select(post_meal_data, Age, BMI, Weight)
+
+select(post_meal_data, -Group)
+
+select(post_meal_data, starts_with("PG"))
+select(post_meal_data, ends_with("DXA"))
+select(post_meal_data, contains("0"))
+```
 
 
 ## About me 
