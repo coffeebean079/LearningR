@@ -7,17 +7,17 @@ format: html
 ## Basics of R
 
 ```{r}
-1 + 1 
+1 + 1
 ```
 ## Setup code chunk 
 
 ```{r setup}
-#| message: false 
+#| message: false
 #| warning: false
 library(tidyverse)
 post_meal_data <- read_csv2(
-#csv2 for ; csv for comma; when underscore e.g. in read_csv, then it is from tidyverse 
-here::here("data/post-meal-insulin.csv")
+  # csv2 for ; csv for comma; when underscore e.g. in read_csv, then it is from tidyverse
+  here::here("data/post-meal-insulin.csv")
 )
 ```
 
@@ -31,13 +31,13 @@ glimpse(post_meal_data)
 ```
 
 ```{r}
-ggplot(post_meal_data, aes(x = BMI)) + 
+ggplot(post_meal_data, aes(x = BMI)) +
   geom_histogram()
 ```
 ```{r}
 #| fig-cap: "Distribution BMI"
 #| label: fig-bmi-histo
-ggplot(post_meal_data, aes(x = BMI)) + 
+ggplot(post_meal_data, aes(x = BMI)) +
   geom_histogram()
 ```
 
@@ -58,20 +58,20 @@ ggplot(post_meal_data, aes(x = glykemi)) +
 
 
 ```{r}
-post_meal_data |> 
-  ggplot(aes(x = Group, fill = glykemi)) + 
+post_meal_data |>
+  ggplot(aes(x = Group, fill = glykemi)) +
   geom_bar()
 ```
 
 ```{r}
-post_meal_data |> 
-  ggplot(aes(x = Group, fill = as.character(glykemi))) + 
+post_meal_data |>
+  ggplot(aes(x = Group, fill = as.character(glykemi))) +
   geom_bar()
 ```
 
 ```{r}
-post_meal_data |> 
-  ggplot(aes(x = Group, fill = as.character(glykemi))) + 
+post_meal_data |>
+  ggplot(aes(x = Group, fill = as.character(glykemi))) +
   geom_bar(position = position_dodge())
 ```
 
@@ -90,7 +90,7 @@ ggplot(post_meal_data, aes(x = glykemi)) +
 ```{r side-by-side figures}
 #| fig-cap: "BMI and glycemia, side by side"
 #| label: fig-bmi-glykemi
-#| fig-subcap: 
+#| fig-subcap:
 #| - "Distribution of BMI"
 #| - "Number of those with glycemia"
 #| layout-ncol: 2
@@ -102,6 +102,15 @@ ggplot(post_meal_data, aes(x = glykemi)) +
   geom_bar()
 ```
 
+## Plotting two continuous variables
+
+```{r}
+#| fig-cap: "Scatterplot BMI against AUC of blood glucose"
+#| label: fig-scatter-bmi-auc-pg
+ggplot(post_meal_data, aes(x = BMI, y = auc_pg)) + 
+  geom_point() + 
+  geom_smooth()
+```
 
 
 ## About me 
@@ -113,10 +122,8 @@ I am a **Postdoc** and work at the institute of *Biochemistry and Molecular Biol
 
 ## Simple code
 ```{r}
-3*3
+3 * 3
 ```
 
 ## Testing for Git 
 It is raining today and the sun is not shining. 
-
-
