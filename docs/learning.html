@@ -634,21 +634,22 @@ Figure&nbsp;4: Scatterplot BMI against AUC of blood glucose
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Task 2.</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>post_meal_data <span class="sc">|&gt;</span></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">".."</span>), <span class="sc">-</span><span class="fu">contains</span>(<span class="st">"..."</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">.minus5 =</span> <span class="fu">contains</span>(<span class="st">".."</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">P.Glucose.minus5.OGTT =</span> P.Glucose..<span class="fl">5.</span>OGTT,</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Insulin.minus5.OGTT.X =</span> Insulin..<span class="fl">5.</span>OGTT.X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 31 × 2
-   .minus51 .minus52
-      &lt;dbl&gt;    &lt;dbl&gt;
- 1      5.1     53.5
- 2      5.6     90.3
- 3      5       20.8
- 4      5.3     52.1
- 5      5.6     44.4
- 6      5.8     32.6
- 7      5.1     38.2
- 8      5.3     30.6
- 9      5       28.5
-10      5.5     35.4
+   P.Glucose.minus5.OGTT Insulin.minus5.OGTT.X
+                   &lt;dbl&gt;                 &lt;dbl&gt;
+ 1                   5.1                  53.5
+ 2                   5.6                  90.3
+ 3                   5                    20.8
+ 4                   5.3                  52.1
+ 5                   5.6                  44.4
+ 6                   5.8                  32.6
+ 7                   5.1                  38.2
+ 8                   5.3                  30.6
+ 9                   5                    28.5
+10                   5.5                  35.4
 # ℹ 21 more rows</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Task 3.</span></span>
