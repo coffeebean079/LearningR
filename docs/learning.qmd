@@ -9,8 +9,23 @@ format: html
 ```{r}
 1 + 1
 ```
-## Setup code chunk 
 
+## About me 
+- Name: Sarah Sentis 
+- Affiliation: University of Southern Denmark 
+
+I am a **Postdoc** and work at the institute of *Biochemistry and Molecular Biology*.
+---
+
+## Simple code
+```{r}
+3 * 3
+```
+
+## Testing for Git 
+It is raining today and the sun is not shining. 
+
+## Setup code chunk 
 ```{r setup}
 #| message: false
 #| warning: false
@@ -56,12 +71,9 @@ ggplot(post_meal_data, aes(x = BMI)) +
 ggplot(post_meal_data, aes(x = BMI)) +
   geom_histogram()
 ```
-
 @fig-bmi-histo
 
-
 ## Exercise: discrete plots 
-
 ```{r}
 #| fig-cap: "Glykemi Bar-Plot"
 #| label: fig-glykemi-bar
@@ -69,9 +81,6 @@ ggplot(post_meal_data, aes(x = glykemi)) +
   geom_bar()
 ```
 @fig-glykemi-bar 
-
-
-
 
 ```{r}
 post_meal_data |>
@@ -92,7 +101,6 @@ post_meal_data |>
 ```
 
 ## Putting two plots side by side 
-
 ```{r}
 ggplot(post_meal_data, aes(x = BMI)) +
   geom_histogram()
@@ -119,7 +127,6 @@ ggplot(post_meal_data, aes(x = glykemi)) +
 ```
 
 ## Plotting two continuous variables
-
 ```{r}
 #| fig-cap: "Scatterplot BMI against AUC of blood glucose"
 #| label: fig-scatter-bmi-auc-pg
@@ -133,7 +140,6 @@ ggplot(post_meal_data, aes(x = BMI, y = auc_pg)) +
 ## Pulling changes locally 
 
 ## Selecting Data
-
 ```{r}
 select(post_meal_data, Age)
 
@@ -159,7 +165,6 @@ small_post_meal_data |>
 ```
 
 ## Select and rename tasks
-
 ```{r}
 # Task 1.
 post_meal_data |>
@@ -182,7 +187,6 @@ post_meal_data |>
   rename(Height = Length)
 ```
 
-
 ## Filtering data by row 
 ```{r}
 small_post_meal_data |>
@@ -203,7 +207,6 @@ small_post_meal_data |>
   filter(Group == "CTR" | BMI >= 25)
 ```
 
-
 ## Modify or add columns 
 ```{r}
 tidier_post_meal_data |>
@@ -213,9 +216,7 @@ tidier_post_meal_data |>
   )
 ```
 
-
 ## Practice with filter and mutate
-
 ```{r}
 # Task 1.
 post_meal_data |>
@@ -301,18 +302,22 @@ post_meal_data |>
   scale_colour_viridis_c(option = "inferno")
 ```
 
-
-## About me 
-- Name: Sarah Sentis 
-- Affiliation: University of Southern Denmark 
-
-I am a **Postdoc** and work at the institute of *Biochemistry and Molecular Biology*.
----
-
-## Simple code
+## Calculating summary statistics 
 ```{r}
-3 * 3
+tidied_post_meal_data |>
+  summarise(
+    max_bmi = max(BMI),
+    min_bmi = min(BMI)
+  )
 ```
 
-## Testing for Git 
-It is raining today and the sun is not shining. 
+## Summarize with splitting 
+```{r}
+tidied_post_meal_data |>
+  group_by(Group) |>
+  summarise(
+    mean_age = mean(Age),
+    mean_bmi = mean(BMI)
+  ) |>
+  ungroup()
+```
